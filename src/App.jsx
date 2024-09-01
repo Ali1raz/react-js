@@ -1,7 +1,9 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
+import Posts from "./pages/Posts";
 import LikesBtn from "./pages/LikesBtn";
+import PostDetail from "./pages/PostDetail";
 
 export default function App() {
   const [theme, setTheme] = React.useState(
@@ -31,8 +33,10 @@ export default function App() {
         </nav>
 
         <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/likesbtn" element={<LikesBtn />}></Route>
+          <Route path="/" element={<Home />} />
+          <Route path="/posts" element={<Posts />} />
+          <Route path="/posts/:id" element={<PostDetail />} />
+          <Route path="/likesbtn" element={<LikesBtn />} />
         </Routes>
       </div>
     </BrowserRouter>
