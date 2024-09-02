@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import Loading from "../components/Loading";
 
 export default function PostDetail() {
   const [post, setPost] = React.useState(null);
@@ -22,7 +23,12 @@ export default function PostDetail() {
     fetchPost();
   }, [id]);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading)
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
   if (error) return <div className="text-bg-danger py-2">{error.message}</div>;
 
   return (

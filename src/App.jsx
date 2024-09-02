@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import "./components/styles.css";
 import Home from "./pages/Home";
 import Posts from "./pages/Posts";
 import LikesBtn from "./pages/LikesBtn";
@@ -24,7 +25,7 @@ export default function App() {
     <BrowserRouter>
       <div className="app container-md">
         <nav className="navbar bg-body-tertiary px-4">
-          <Link to="/" className="link-unstyled">
+          <Link to="/" className="link-reset">
             <h1 className="navbar-brand"> /Router</h1>
           </Link>
           <button className=" btn" onClick={toggleTheme}>

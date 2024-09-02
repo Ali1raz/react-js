@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Loading from "../components/Loading";
 import "../components/styles.css";
 import axios from "axios";
 
@@ -35,7 +36,7 @@ export default function Posts() {
     );
   }
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <Loading />;
   if (error) return <div className="text-danger">Error: {error.message}</div>;
 
   return (
