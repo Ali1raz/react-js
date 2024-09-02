@@ -23,20 +23,21 @@ export default function PostDetail() {
     fetchPost();
   }, [id]);
 
-  if (loading)
-    return (
-      <div>
-        <Loading />
-      </div>
-    );
+  if (loading) return <Loading />;
   if (error) return <div className="text-bg-danger py-2">{error.message}</div>;
 
   return (
     <div className="container">
+      <div
+        className="w-100 border-bottom border-3 mb-2 border-light"
+        style={{ height: "120px", background: `${post.color}` }}
+      ></div>
       <h2>{post.author}</h2>
-      <div className="d-flex align-items-center justify-content-start gap-3">
+      <div className="d-flex align-items-center justify-content-between pe-3">
         <span>{post.title}</span>
-        <span className={`${post.isLiked ? "fas" : "far"} fa-heart`}></span>
+        <span
+          className={`${post.isLiked ? "text-danger fas" : "far"} fa-heart`}
+        ></span>
       </div>
       <p>{post.body}</p>
     </div>

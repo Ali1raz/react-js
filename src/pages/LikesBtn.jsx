@@ -38,7 +38,7 @@ export default function LikesBtn() {
           >
             <span
               className={`fa${btn.liked ? "s" : "r"} fa-heart 
-              ${btn.liked ? "text-danger" : "text-leght"}`}
+              ${btn.liked ? "text-danger" : "text-light"}`}
             ></span>
             <span className="ms-2">{btn.count}</span>
           </button>

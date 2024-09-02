@@ -41,7 +41,7 @@ export default function Posts() {
 
   return (
     <div className="container">
-      <h3>Posts - {posts.length}</h3>
+      <h3 className="my-2">Posts - {posts.length}</h3>
       {posts.map((post) => (
         <Link className="text-reset link-reset" to={`/posts/${post.id}`}>
           <div
@@ -52,9 +52,11 @@ export default function Posts() {
             <div className="d-flex flex-column justify-content-start">
               <span className="fw-bold">{`${post.author} - ${post.title}`}</span>
               <div>{post.body}</div>
-              <div className="d-flex justify-content-between mt-2">
+              <div className="d-flex justify-content-between mt-2 mb-1">
                 <span
-                  className={`${post.isLiked ? "fas" : "far"} fa-heart`}
+                  className={`${
+                    post.isLiked ? "text-danger fas" : "far"
+                  } fa-heart`}
                 ></span>
               </div>
             </div>
