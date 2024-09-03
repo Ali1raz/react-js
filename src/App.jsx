@@ -2,9 +2,11 @@ import React from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import "./components/styles.css";
 import Home from "./pages/Home";
+import Nav from "./pages/Nav";
 import Posts from "./pages/Posts";
 import LikesBtn from "./pages/LikesBtn";
 import PostDetail from "./pages/PostDetail";
+import Tabs from "./pages/tabs";
 
 export default function App() {
   const [theme, setTheme] = React.useState(
@@ -32,12 +34,14 @@ export default function App() {
             <i className={`fa fa-${theme === "dark" ? "sun" : "moon"}`}></i>
           </button>
         </nav>
+        <Nav />
 
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/posts" element={<Posts />} />
           <Route path="/posts/:id" element={<PostDetail />} />
           <Route path="/likesbtn" element={<LikesBtn />} />
+          <Route path="/tabs" element={<Tabs />} />
         </Routes>
       </div>
     </BrowserRouter>
