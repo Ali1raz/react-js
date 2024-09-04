@@ -3,10 +3,10 @@ import routes from "./routes";
 
 export default function Nav() {
   return (
-    <div className="container-md mb-2 d-flex">
+    <div className="container-md mb-2 d-flex flex-sm-col">
       <span className="me-2">Go to</span>
-      {routes.map((r) => (
-        <div className="d-flex gap-2" key={r.id}>
+      {routes.map((r, index) => (
+        <div className="d-flex gap-2" key={index}>
           <span>&gt;</span>
           <NavLink
             className="link-reset me-3 "

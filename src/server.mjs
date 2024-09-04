@@ -6,17 +6,17 @@ const app = express();
 app.use(cors());
 
 app.get("/", (req, res) => {
-  console.log(`${req.method} - ${req.baseUrl}`);
+  console.log(`${req.method} - ${req.url}`);
   res.send({ msg: "Welcome to the API" });
 });
 
 app.get("/api/posts", (req, res) => {
-  console.log(`${req.method} - ${req.baseUrl}`);
+  console.log(`${req.method} - ${req.url}`);
   res.send(posts);
 });
 
 app.get("/api/posts/:id", (req, res) => {
-  console.log(`${req.method} - ${req.baseUrl}`);
+  console.log(`${req.method} - ${req.url}`);
   const {
     params: { id },
   } = req;
