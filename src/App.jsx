@@ -7,6 +7,9 @@ import Posts from "./pages/Posts";
 import LikesBtn from "./pages/LikesBtn";
 import PostDetail from "./pages/PostDetail";
 import Tabs from "./pages/tabs";
+import AboutReact from "./pages/Tabs/React";
+import AboutNode from "./pages/Tabs/Node";
+import AboutExpress from "./pages/Tabs/Express";
 
 export default function App() {
   const [theme, setTheme] = React.useState(
@@ -37,12 +40,18 @@ export default function App() {
         <Nav />
 
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/posts" element={<Posts />} />
-          <Route path="/posts/:id" element={<PostDetail />} />
-          <Route path="/likesbtn" element={<LikesBtn />} />
-          <Route path="/tabs" element={<Tabs />} />
+          <Route path="/">
+            <Route index element={<Home />} />
+            <Route path="posts" element={<Posts />} />
+            <Route path="posts/:id" element={<PostDetail />} />
+            <Route path="likesbtn" element={<LikesBtn />} />
+
+            <Route path="/tabs" element={<Tabs />}>
+              <Route index element={<AboutReact />}></Route>
+              <Route path="node" element={<AboutNode />}></Route>
+              <Route path="express" element={<AboutExpress />}></Route>
+            </Route>
+          </Route>
         </Routes>
       </div>
     </BrowserRouter>

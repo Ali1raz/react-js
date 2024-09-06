@@ -43,16 +43,14 @@ export default function Posts() {
     <div className="container">
       <h3 className="my-2">Posts - {posts.length}</h3>
       {posts.map((post) => (
-        <Link
-          className="text-reset link-reset"
-          to={`/posts/${post.id}`}
-          key={post.id}
-        >
+        <div className="" key={post.id}>
           <div className="d-flex gap-3 my-2 border-bottom border-secondary">
             <ColorSpan color={post.color} />
             <div className="d-flex flex-column justify-content-start">
-              <span className="fw-bold">{`${post.author} - ${post.title}`}</span>
-              <div>{post.body}</div>
+              <Link className="link-reset" to={`/posts/${post.id}`}>
+                <span className="fw-bold">{`${post.author} - ${post.title}`}</span>
+                <div>{post.body}</div>
+              </Link>
               <div className="d-flex justify-content-between mt-2 mb-1">
                 <span
                   className={`${
@@ -62,7 +60,7 @@ export default function Posts() {
               </div>
             </div>
           </div>
-        </Link>
+        </div>
       ))}
     </div>
   );
