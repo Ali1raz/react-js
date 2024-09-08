@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import Loading from "../components/Loading";
 import "../components/styles.css";
 import axios from "axios";
@@ -8,6 +8,13 @@ export default function Posts() {
   const [posts, setPosts] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState(null);
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const filterLiked = searchParams.get("show");
+
+  const displayedPosts = filterLiked
+    ? posts.filter((p) => p.isLiked === true)
+    : posts;
 
   React.useEffect(() => {
     const f = async () => {
@@ -41,8 +48,26 @@ export default function Posts() {
 
   return (
     <div className="container">
-      <h3 className="my-2">Posts - {posts.length}</h3>
-      {posts.map((post) => (
+      <div className="d-flex justify-content-between pe-2">
+        <h3 className="my-2">Posts - {displayedPosts.length}</h3>
+        <div>
+          <button
+            className="btn btn-outline"
+            onClick={() => setSearchParams({ show: "liked" })}
+          >
+            <span className="fas fa-heart text-danger"></span>
+          </button>
+          {filterLiked && (
+            <button
+              className="btn btn-outline"
+              onClick={() => setSearchParams({})}
+            >
+              <span className="fa fa-close"></span>
+            </button>
+          )}
+        </div>
+      </div>
+      {displayedPosts.map((post) => (
         <div className="" key={post.id}>
           <div className="d-flex gap-3 my-2 border-bottom border-secondary">
             <ColorSpan color={post.color} />
